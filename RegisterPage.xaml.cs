@@ -13,19 +13,28 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace net_pj
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class RegisterPage : Page
     {
-        public MainPage()
+        public RegisterPage()
         {
             this.InitializeComponent();
+        }
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Lưu thông tin đăng ký nếu cần (ở đây chỉ giả lập)
+            Frame.Navigate(typeof(LoginPage));
+        }
 
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LoginPage));
         }
     }
 }
