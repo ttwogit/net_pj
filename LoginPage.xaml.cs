@@ -1,58 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System.Security.Cryptography;
+using System.Text;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+using MySqlConnector;
 
 namespace net_pj
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class LoginPage : Page
     {
         public LoginPage()
         {
             this.InitializeComponent();
-
-
         }
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+
+        private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            var username = UsernameTextBox.Text;
-            var password = PasswordBox.Password;
-
-            // Giả lập xác thực
-            if (username == "admin" && password == "123")
+            string username = UsernameTextBox.Text;
+            string password = PasswordBox.Password;
+            string hashedPassword = HashPassword(username, password);
+            if (string.IsNullOrEmpty(username))
             {
-                Frame.Navigate(typeof(MainPage));
+                await new MessageDialog("Vui lòng nhập tên đăng nhập.").ShowAsync();
+                return;
             }
-            else
+
+            if (!IsPasswordValid(password))
             {
-                ContentDialog dialog = new ContentDialog
+                await new MessageDialog("Mật khẩu phải có ít nhất 8 ký tự và chứa ít nhất 1 số.").ShowAsync();
+                return;
+            }
+            using (MySqlConnection conn = new MySqlConnection(Config.ConnStr))
+            {
+                try
                 {
-                    Title = "Lỗi đăng nhập",
-                    Content = "Sai tài khoản hoặc mật khẩu.",
-                    CloseButtonText = "OK"
-                };
-                _ = dialog.ShowAsync();
+                    await conn.OpenAsync();
+
+                    string query = "SELECT COUNT(*) FROM users WHERE username = @username AND password = @password";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", hashedPassword);
+
+                        object result = await cmd.ExecuteScalarAsync();
+                        int count = Convert.ToInt32(result);
+
+                        if (count > 0)
+                        {
+                            await new MessageDialog("Đăng nhập thành công!").ShowAsync();
+                            Frame.Navigate(typeof(MainPage));
+                        }
+                        else
+                        {
+                            await new MessageDialog("Sai tên đăng nhập hoặc mật khẩu.").ShowAsync();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    await new MessageDialog("Lỗi: " + ex.Message).ShowAsync();
+                }
             }
         }
 
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        private async void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(RegisterPage));
+        }
+        private bool IsPasswordValid(string password)
+        {
+            return password.Length >= 8 && System.Text.RegularExpressions.Regex.IsMatch(password, @"\d");
+        }
+
+
+        private string HashPassword(string username, string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                string combined = username + password;
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(combined));
+                return BitConverter.ToString(bytes).Replace("-", "").ToLower();
+            }
         }
     }
 }
