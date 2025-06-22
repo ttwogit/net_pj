@@ -10,6 +10,7 @@ namespace net_pj
 {
     public sealed partial class LoginPage : Page
     {
+
         public LoginPage()
         {
             this.InitializeComponent();
@@ -20,15 +21,19 @@ namespace net_pj
             string username = UsernameTextBox.Text;
             string password = PasswordBox.Password;
             string hashedPassword = HashPassword(username, password);
+
+            MessageTextBlock.Text = ""; // Clear thông báo cũ
+
+
             if (string.IsNullOrEmpty(username))
             {
-                await new MessageDialog("Vui lòng nhập tên đăng nhập.").ShowAsync();
+                MessageTextBlock.Text = "Vui lòng nhập tên đăng nhập.";
                 return;
             }
 
             if (!IsPasswordValid(password))
             {
-                await new MessageDialog("Mật khẩu phải có ít nhất 8 ký tự và chứa ít nhất 1 số.").ShowAsync();
+                MessageTextBlock.Text = "Mật khẩu phải có ít nhất 8 ký tự và chứa ít nhất 1 số.";
                 return;
             }
             using (MySqlConnection conn = new MySqlConnection(Config.ConnStr))
@@ -48,12 +53,17 @@ namespace net_pj
 
                         if (count > 0)
                         {
-                            await new MessageDialog("Đăng nhập thành công!").ShowAsync();
-                            Frame.Navigate(typeof(MainPage));
+                            AppState.CurrentPlayer = new PlayerInfo
+                            {
+                                Username = username,
+                            };
+                                MessageTextBlock.Text = "Đăng nhập thành công!";
+                            Frame.Navigate(typeof(NavigationView));
                         }
                         else
                         {
-                            await new MessageDialog("Sai tên đăng nhập hoặc mật khẩu.").ShowAsync();
+                            MessageTextBlock.Text = "Sai tên đăng nhập hoặc mật khẩu.";
+
                         }
                     }
                 }

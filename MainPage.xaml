@@ -15,7 +15,6 @@
             <Button Content="Nạp Game" Click="TopUpButton_Click"/>
             <Button Content="Gọi Đồ Ăn" Click="FoodButton_Click"/>
             <Button Content="Thông tin người chơi" Click="UserInfoButton_Click"/>
-            <Button Content="Đăng nhập/Đăng kí" Click="Logout_Click"/>
             <Button Content="Đăng xuất" Click="LogoutButton_Click"/> 
   
         </StackPanel>

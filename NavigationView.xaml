@@ -10,31 +10,35 @@
 
     <Grid>
         <NavigationView x:Name="NavView"
-                     IsSettingsVisible="True"
-                     Loaded="NavView_Loaded"
-                     ItemInvoked="NavView_ItemInvoked"
-                     BackRequested="NavView_BackRequested">
-            
+                IsSettingsVisible="True"
+                IsPaneOpen="True"
+                ItemInvoked="NavView_ItemInvoked">
+
+            <NavigationView.PaneHeader>
+                <StackPanel x:Name="PaneHeaderPanel" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="/Assets/Square44x44Logo.scale-200.png"
+               Width="32" Height="32" Margin="0,0,8,0"/>
+                    <TextBlock x:Name="WelcomeText"
+                   Text=""
+                   FontSize="18"
+                   VerticalAlignment="Center"/>
+                </StackPanel>
+            </NavigationView.PaneHeader>
             <NavigationView.MenuItems>
                 <NavigationViewItemSeparator/>
-                <NavigationViewItem Tag="NavigationView.AppsPage" Content="Apps">
+                <NavigationViewItem Tag="NavigationView.AppsPage" Content="Apps" x:Name="AppsPage">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xEB3C;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="NavigationView.GamesPage" Content="Games">
+                <NavigationViewItem Tag="NavigationView.GamesPage" Content="Games" x:Name="GamePage">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE7FC;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="NavigationViewDemo.MusicPage" Icon="Audio" Content="Music"/>
-
+                <NavigationViewItem Tag="NavigationViewDemo.MusicPage" Icon="Audio" Content="Music" x:Name="AudioPage"/>
             </NavigationView.MenuItems>
 
-            <NavigationView.PaneFooter>
-                <NavigationViewItem Content="Tài Khoản" Icon="Contact" />
-            </NavigationView.PaneFooter>
-            
             <ScrollViewer>
                 <Frame x:Name="ContentFrame" IsTabStop="True"
                 NavigationFailed="ContentFrame_NavigationFailed"/>

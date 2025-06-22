@@ -59,16 +59,11 @@ namespace net_pj
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            AppState.CurrentPlayer = null;
-            Frame.Navigate(typeof(LoginPage));
-        }
-        private void Logout_Click(object sender, RoutedEventArgs e)
-        {
             // Xóa thông tin người dùng
             AppState.CurrentPlayer = null;
 
             // Quay lại trang đăng nhập
-            Frame.Navigate(typeof(LoginPage));
+            Window.Current.Content = new LoginPage();
         }
     }
 }
