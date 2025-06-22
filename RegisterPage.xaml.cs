@@ -1,11 +1,10 @@
-﻿using MySqlConnector;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using MySqlConnector;
 
 namespace net_pj
 {
@@ -74,14 +73,8 @@ namespace net_pj
                     }
                 }
 
-                AppState.CurrentPlayer = new PlayerInfo
-                {
-                    Username = username,
-                    Token = 0,
-                    OrderedFoods = new List<string>()
-                };
-
-                Frame.Navigate(typeof(MainPage), username);
+                MessageTextBlock.Text = "Đăng ký thành công!";
+                Frame.Navigate(typeof(LoginPage));
             }
             catch (Exception ex)
             {
@@ -112,11 +105,6 @@ namespace net_pj
                 byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(combined));
                 return BitConverter.ToString(bytes).Replace("-", "").ToLower();
             }
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MainPage));
         }
     }
 }
