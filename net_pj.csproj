@@ -119,7 +119,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppState.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="FoodOrderPage.xaml.cs">
+      <DependentUpon>FoodOrderPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -130,6 +134,12 @@
     <Compile Include="RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TopUpPage.xaml.cs">
+      <DependentUpon>TopUpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfoPage.xaml.cs">
+      <DependentUpon>UserInfoPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -137,6 +147,11 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\mixaobo.png" />
+    <Content Include="Assets\garan.png" />
+    <Content Include="Assets\comchien.png" />
+    <Content Include="Assets\trasua.png" />
+    <Content Include="Assets\gianap.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -151,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="FoodOrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -160,6 +179,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="RegisterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TopUpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

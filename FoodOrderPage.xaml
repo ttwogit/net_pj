@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="net_pj.FoodOrderPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:net_pj"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock Text="Menu đồ ăn" 
+                   FontSize="24" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" Height="872" Width="141"/>
+        <StackPanel Padding="20" Spacing="10" RenderTransformOrigin="0.393,0.387">
+            <TextBlock Text="🍜 Gọi Món Ăn" FontSize="24" FontWeight="Bold"/>
+
+            <ComboBox x:Name="FoodComboBox" Header="Chọn món ăn">
+                <ComboBoxItem Content="Mì xào bò"/>
+                <ComboBoxItem Content="Cơm chiên hải sản"/>
+                <ComboBoxItem Content="Trà sữa trân châu"/>
+                <ComboBoxItem Content="Gà rán KFC"/>
+            </ComboBox>
+
+            <Button Content="Gọi món" Click="OrderButton_Click" Background="DarkOrange" Foreground="White"/>
+
+            <TextBlock x:Name="OrderMessage" FontSize="18" Foreground="DarkGreen"/>
+            <Button Content="🔙 Trở về menu chính"
+        Click="BackButton_Click"
+        Background="Gray"
+        Foreground="White"
+        Margin="0,20,0,0"/>
+            <Canvas Height="150">
+                <!-- Ảnh 1 -->
+                <Image Source="/Assets/mixaobo.png"
+           Width="120" Height="120"
+           Canvas.Left="0" Canvas.Top="10"/>
+
+                <!-- Ảnh 2 -->
+                <Image Source="/Assets/garan.png"
+           Width="120" Height="120"
+           Canvas.Left="130" Canvas.Top="10"/>
+
+                <!-- Ảnh 3 -->
+                <Image Source="/Assets/trasua.png"
+           Width="120" Height="120"
+           Canvas.Left="260" Canvas.Top="10"/>
+
+                <!-- Ảnh 4 -->
+                <Image Source="/Assets/comchien.png"
+           Width="120" Height="120"
+           Canvas.Left="390" Canvas.Top="10"/>
+            </Canvas>
+        </StackPanel>
+            
+    </Grid>
+</Page>

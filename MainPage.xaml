@@ -9,6 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Chào mừng đến với Menu Chính!" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="20">
+            <TextBlock x:Name="WelcomeTextBlock" FontSize="24" Text="Chào mừng!" />
+            
+            <Button Content="Nạp Game" Click="TopUpButton_Click"/>
+            <Button Content="Gọi Đồ Ăn" Click="FoodButton_Click"/>
+            <Button Content="Thông tin người chơi" Click="UserInfoButton_Click"/>
+            <Button Content="Đăng nhập/Đăng kí" Click="Logout_Click"/>
+            <Button Content="Đăng xuất" Click="LogoutButton_Click"/> 
+  
+        </StackPanel>
     </Grid>
 </Page>

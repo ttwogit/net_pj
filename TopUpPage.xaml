@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="net_pj.TopUpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:net_pj"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock Text="Trang Nạp Game" 
+                   FontSize="24" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"/>
+        <Image Source="/Assets/gianap.png" Margin="185,530,191,19" d:LayoutOverrides="LeftPosition, RightPosition" Height="451"/>
+        <StackPanel Padding="20" Spacing="10">
+            <TextBlock Text="💰 Nạp Token" FontSize="24" FontWeight="Bold"/>
+
+            <TextBox x:Name="TokenAmountTextBox" PlaceholderText="Nhập số token" InputScope="Number" />
+
+            <Button Content="Xác nhận nạp" Click="ConfirmButton_Click" Background="Green" Foreground="White"/>
+
+            <TextBlock x:Name="MessageTextBlock" FontSize="18" Foreground="Green"/>
+            <Button Content="🔙 Trở về menu chính"
+        Click="BackButton_Click"
+        Background="Gray"
+        Foreground="White"
+        Margin="0,20,0,0"/>
+        </StackPanel>
+    </Grid>
+</Page>

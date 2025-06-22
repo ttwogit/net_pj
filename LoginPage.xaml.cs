@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using MySqlConnector;
 
 namespace net_pj
 {
@@ -48,8 +49,15 @@ namespace net_pj
 
                         if (count > 0)
                         {
+                            // Gán thông tin người chơi toàn cục
+                            AppState.CurrentPlayer = new PlayerInfo
+                            {
+                                Username = username,
+                                Token = 0,
+                                OrderedFoods = new List<string>()
+                            };
                             await new MessageDialog("Đăng nhập thành công!").ShowAsync();
-                            Frame.Navigate(typeof(MainPage));
+                            Frame.Navigate(typeof(MainPage), username);
                         }
                         else
                         {
@@ -82,6 +90,11 @@ namespace net_pj
                 byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(combined));
                 return BitConverter.ToString(bytes).Replace("-", "").ToLower();
             }
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
         }
     }
 }

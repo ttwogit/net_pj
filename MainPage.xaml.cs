@@ -24,10 +24,51 @@ namespace net_pj
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private string currentUsername;
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            currentUsername = e.Parameter as string;
+
+            if (!string.IsNullOrEmpty(currentUsername))
+            {
+                WelcomeTextBlock.Text = $"Chào {currentUsername}!";
+            }
+        }
+
         public MainPage()
         {
             this.InitializeComponent();
 
+        }
+        private void TopUpButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(TopUpPage), currentUsername);
+        }
+
+        private void FoodButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(FoodOrderPage), currentUsername);
+        }
+
+        private void UserInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(UserInfoPage), currentUsername);
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            AppState.CurrentPlayer = null;
+            Frame.Navigate(typeof(LoginPage));
+        }
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            // Xóa thông tin người dùng
+            AppState.CurrentPlayer = null;
+
+            // Quay lại trang đăng nhập
+            Frame.Navigate(typeof(LoginPage));
         }
     }
 }
