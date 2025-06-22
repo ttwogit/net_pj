@@ -11,3 +11,4 @@ namespace net_pj
         public static readonly string ConnStr = "Server=127.0.0.1;User ID=net_pj;Password=fS7csJeJgVpzd/1q;Database=net_pj;SslMode=none;";
     }
 }
+//ok
