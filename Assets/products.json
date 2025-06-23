@@ -1,0 +1,23 @@
+[
+  {
+    "type": "FoodItem",
+    "content": "Trà sữa trân châu",
+    "ImageUrl": "garan.png",
+    "Price": 25000,
+    "OderID": 2001
+  },
+  {
+    "type": "FoodItem",
+    "content": "Cà phê sữa đá",
+    "ImageUrl": "mixaobo.png",
+    "Price": 20000,
+    "OderID": 2002
+  },
+  {
+    "type": "FoodItem",
+    "content": "Bánh mì thịt",
+    "ImageUrl": "trasua.png",
+    "Price": 15000,
+    "OderID": 2003
+  }
+]

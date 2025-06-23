@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -12,6 +13,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Newtonsoft.Json;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,41 +26,35 @@ namespace net_pj
     /// </summary>
     public sealed partial class FoodOrderPage : Page
     {
-        private string username;
+        public ObservableCollection<UIElementData> ProductList { get; set; } = new ObservableCollection<UIElementData>();
+
         public FoodOrderPage()
         {
             this.InitializeComponent();
-        }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            username = e.Parameter?.ToString();
-            // Bạn có thể dùng username để hiển thị hoặc truy vấn dữ liệu
+            this.Loaded += FoodOrderPage_Loaded;
         }
 
-        private void OrderButton_Click(object sender, RoutedEventArgs e)
+        private async void FoodOrderPage_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            if (AppState.CurrentPlayer == null)
-            {
-                OrderMessage.Text = "❌ Không có người dùng nào đang đăng nhập.";
-                return;
-            }
+            await LoadProductsAsync();
+        }
 
-            if (FoodComboBox.SelectedItem is ComboBoxItem selectedItem)
-            {
-                string food = selectedItem.Content.ToString();
-                AppState.CurrentPlayer.OrderedFoods.Add(food);
-                OrderMessage.Text = $"✅ Đã gọi món: {food}";
-            }
-            else
-            {
-                OrderMessage.Text = "❗ Vui lòng chọn món ăn trước khi gọi.";
+        private async Task LoadProductsAsync()
+        {
+
+                StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(
+                    new Uri("ms-appx:///Assets/products.json"));
+                string json = await FileIO.ReadTextAsync(file);
+
+                var items = JsonConvert.DeserializeObject<List<UIElementData>>(json);
+                ProductList.Clear();
+                foreach (var product in items)
+                {
+                var card = new Item();
+                card.BindData(product);
+                ProductGrid.Items.Add(card);
             }
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MainPage));
-        }
     }
 }

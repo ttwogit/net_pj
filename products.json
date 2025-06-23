@@ -1,0 +1,23 @@
+[
+    {
+        "type": "FoodItem",
+        "content": "Trà sữa trân châu",
+        "ImageUrl": "ms-appx:///Assets/milktea.jpg",
+        "Price": 25000,
+        "OderID": 2001
+    },
+    {
+        "type": "FoodItem",
+        "content": "Cà phê sữa đá",
+        "ImageUrl": "ms-appx:///Assets/coffee.jpg",
+        "Price": 20000,
+        "OderID": 2002
+    },
+    {
+        "type": "FoodItem",
+        "content": "Bánh mì thịt",
+        "ImageUrl": "ms-appx:///Assets/banhmi.jpg",
+        "Price": 15000,
+        "OderID": 2003
+    }
+]

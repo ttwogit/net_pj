@@ -9,54 +9,26 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Menu đồ ăn" 
-                   FontSize="24" 
-                   HorizontalAlignment="Left" 
-                   VerticalAlignment="Top" Height="872" Width="141" Margin="20,175,0,0" RenderTransformOrigin="0.5,0.5">
-            <TextBlock.RenderTransform>
-                <CompositeTransform SkewY="-2.703" TranslateY="-3.328"/>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        <StackPanel Padding="20" Spacing="10" RenderTransformOrigin="0.393,0.387">
-            <TextBlock Text="🍜 Gọi Món Ăn" FontSize="24" FontWeight="Bold"/>
+        <GridView x:Name="ProductGrid"
+                  SelectionMode="None"
+                  HorizontalContentAlignment="Stretch"
+                  VerticalContentAlignment="Top"
+                  Padding="24"
+                  Width="Auto"
+                  HorizontalAlignment="Center">
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid MaximumRowsOrColumns="5" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
 
-            <ComboBox x:Name="FoodComboBox" Header="Chọn món ăn">
-                <ComboBoxItem Content="Mì xào bò"/>
-                <ComboBoxItem Content="Cơm chiên hải sản"/>
-                <ComboBoxItem Content="Trà sữa trân châu"/>
-                <ComboBoxItem Content="Gà rán KFC"/>
-            </ComboBox>
-
-            <Button Content="Gọi món" Click="OrderButton_Click" Background="DarkOrange" Foreground="White"/>
-
-            <TextBlock x:Name="OrderMessage" FontSize="18" Foreground="DarkGreen"/>
-            <Button Content="🔙 Trở về menu chính"
-        Click="BackButton_Click"
-        Background="Gray"
-        Foreground="White"
-        Margin="0,20,0,0"/>
-            <Canvas Height="150">
-                <!-- Ảnh 1 -->
-                <Image Source="/Assets/mixaobo.png"
-           Width="120" Height="120"
-           Canvas.Left="0" Canvas.Top="10"/>
-
-                <!-- Ảnh 2 -->
-                <Image Source="/Assets/garan.png"
-           Width="120" Height="120"
-           Canvas.Left="130" Canvas.Top="10"/>
-
-                <!-- Ảnh 3 -->
-                <Image Source="/Assets/trasua.png"
-           Width="120" Height="120"
-           Canvas.Left="260" Canvas.Top="10"/>
-
-                <!-- Ảnh 4 -->
-                <Image Source="/Assets/comchien.png"
-           Width="120" Height="120"
-           Canvas.Left="390" Canvas.Top="10"/>
-            </Canvas>
-        </StackPanel>
-
+            <GridView.ItemContainerStyle>
+                <Style TargetType="GridViewItem">
+                    <Setter Property="Margin" Value="8"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Top"/>
+                </Style>
+            </GridView.ItemContainerStyle>
+        </GridView>
     </Grid>
 </Page>
