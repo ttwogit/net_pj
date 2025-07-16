@@ -49,7 +49,7 @@ namespace net_pj
 
         private void FoodButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(FoodOrderPage), currentUsername);
+            Frame.Navigate(typeof(OrderPage), currentUsername);
         }
 
         private void UserInfoButton_Click(object sender, RoutedEventArgs e)
@@ -64,6 +64,8 @@ namespace net_pj
 
             // Quay lại trang đăng nhập
             Window.Current.Content = new LoginPage();
+            Window.Current.Activate();
+
         }
     }
 }

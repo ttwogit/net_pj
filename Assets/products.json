@@ -1,23 +1,54 @@
 [
   {
-    "type": "FoodItem",
+    "type": "DrinkItem",
     "content": "Trà sữa trân châu",
     "ImageUrl": "garan.png",
     "Price": 25000,
-    "OderID": 2001
+    "OderID": 2001,
+    "Value": 0
   },
   {
-    "type": "FoodItem",
+    "type": "DrinkItem",
     "content": "Cà phê sữa đá",
     "ImageUrl": "mixaobo.png",
     "Price": 20000,
-    "OderID": 2002
+    "OderID": 2002,
+    "Value": 0
   },
   {
     "type": "FoodItem",
     "content": "Bánh mì thịt",
     "ImageUrl": "trasua.png",
     "Price": 15000,
-    "OderID": 2003
+    "OderID": 2003,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Mì xào bò",
+    "ImageUrl": "garan.png",
+    "Price": 15000,
+    "OderID": 2003,
+    "Value": 0
+  },
+  {
+    "type": "GameTime",
+    "content": "Nạp cháu 500k",
+    "ImageUrl": "trasua.png",
+    "Price": 50000,
+    "OderID": 1001,
+    "Value": 18000
+  },
+  {
+    "type": "GameTime",
+    "content": "Nạp cháu 1 củ",
+    "ImageUrl": "trasua.png",
+    "Price": 10000,
+    "OderID": 1002,
+    "Value": 36000
   }
+
+
+
+
 ]

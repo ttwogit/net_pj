@@ -47,7 +47,7 @@ namespace net_pj
             }
             else if (selectedItem == AudioPage)
             {
-                ContentFrame.Navigate(typeof(FoodOrderPage));
+                ContentFrame.Navigate(typeof(OrderPage));
             }
             if (args.IsSettingsInvoked)
             {

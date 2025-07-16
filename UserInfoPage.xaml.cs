@@ -22,7 +22,6 @@ namespace net_pj
     /// </summary>
     public sealed partial class UserInfoPage : Page
     {
-        private string username;
         public UserInfoPage()
         {
             this.InitializeComponent();

@@ -20,8 +20,8 @@ namespace net_pj
             string username = NewUsernameTextBox.Text.Trim();
             string password = NewPasswordBox.Password;
             string email = EmailTextBox.Text.Trim();
-
-            MessageTextBlock.Text = ""; // Clear thông báo cũ
+            int TimeToken = 0;
+            MessageTextBlock.Text = ""; 
 
             if (string.IsNullOrEmpty(username))
             {
@@ -68,13 +68,14 @@ namespace net_pj
                         insertCmd.Parameters.AddWithValue("@username", username);
                         insertCmd.Parameters.AddWithValue("@password", hashedPassword);
                         insertCmd.Parameters.AddWithValue("@email", email);
+                        insertCmd.Parameters.AddWithValue("@TimeToken", TimeToken);
 
                         await insertCmd.ExecuteNonQueryAsync();
                     }
                 }
 
                 MessageTextBlock.Text = "Đăng ký thành công!";
-                Frame.Navigate(typeof(LoginPage));
+                Window.Current.Content = new LoginPage();
             }
             catch (Exception ex)
             {
@@ -84,7 +85,7 @@ namespace net_pj
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(LoginPage));
+            Window.Current.Content = new LoginPage();
         }
 
         private bool IsPasswordValid(string password)

@@ -6,17 +6,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="200">
+    d:DesignHeight="420"
+    d:DesignWidth="320">
 
-    <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="10">
+    <Border BorderBrush="Gray" BorderThickness="1" Margin="5" CornerRadius="8" Padding="5" Width="300" Height="400">
         <StackPanel>
             <TextBlock x:Name="NameText" FontSize="20" FontWeight="Bold" Margin="5"/>
-            <Image x:Name="ProductImage" Width="135" Height="180" Stretch="UniformToFill"/>
+            <Image x:Name="ProductImage" Height="310" Stretch="UniformToFill"/>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" MinWidth="116" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock x:Name="PriceText"
@@ -24,13 +24,14 @@
                            Foreground="Green"
                            FontSize="16"
                            VerticalAlignment="Center"
-                           Margin="5"/>
+                           Margin="5" Height="21"/>
 
                 <Button Content="Đặt hàng"
                         Grid.Column="1"
                         FontSize="12"
                         Margin="5"
-                        Click="OrderButton_Click"/>
+                        HorizontalAlignment="Center"
+                        Click="OrderButton_Click" Width="70"/>
             </Grid>
         </StackPanel>
     </Border>

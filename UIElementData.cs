@@ -8,11 +8,11 @@ namespace net_pj
 {
     public class UIElementData
     {
-        public string type { get; set; }
+        public object type { get; set; }
         public string content { get; set; }
         public string ImageUrl { get; set; }
         public double Price { get; set; }
-        public int OrderID { get; set; }
-
+        public int OderID { get; set; }
+        public int Value { get; set; }
     }
 }

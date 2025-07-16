@@ -42,41 +42,45 @@ namespace net_pj
                 {
                     await conn.OpenAsync();
 
-                    string query = "SELECT COUNT(*) FROM users WHERE username = @username AND password = @password";
+                    // Lấy token trực tiếp nếu username & password hợp lệ
+                    string query = "SELECT TimeToken FROM users WHERE username = @username AND password = @password LIMIT 1";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@username", username);
                         cmd.Parameters.AddWithValue("@password", hashedPassword);
 
                         object result = await cmd.ExecuteScalarAsync();
-                        int count = Convert.ToInt32(result);
 
-                        if (count > 0)
+                        if (result != null && result != DBNull.Value)
                         {
+                            int token = Convert.ToInt32(result);
+
+                            // Gán thông tin vào AppState
                             AppState.CurrentPlayer = new PlayerInfo
                             {
                                 Username = username,
+                                Token = token
                             };
-                                MessageTextBlock.Text = "Đăng nhập thành công!";
-                            Frame.Navigate(typeof(NavigationView));
+
+                            MessageTextBlock.Text = "Đăng nhập thành công!";
+                            Window.Current.Content = new NavigationView();
                         }
                         else
                         {
                             MessageTextBlock.Text = "Sai tên đăng nhập hoặc mật khẩu.";
-
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    await new MessageDialog("Lỗi: " + ex.Message).ShowAsync();
+                    MessageTextBlock.Text = "Lỗi: " + ex.Message;
                 }
             }
         }
 
-        private async void RegisterButton_Click(object sender, RoutedEventArgs e)
+            private async void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(RegisterPage));
+            Window.Current.Content = new RegisterPage();
         }
         private bool IsPasswordValid(string password)
         {

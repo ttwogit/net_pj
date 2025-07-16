@@ -121,9 +121,8 @@
     </Compile>
     <Compile Include="AppState.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="console.cs" />
-    <Compile Include="FoodOrderPage.xaml.cs">
-      <DependentUpon>FoodOrderPage.xaml</DependentUpon>
+    <Compile Include="OrderPage.xaml.cs">
+      <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Item.xaml.cs">
       <DependentUpon>Item.xaml</DependentUpon>
@@ -174,7 +173,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="FoodOrderPage.xaml">
+    <Page Include="OrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,6 +221,9 @@
     </PackageReference>
     <PackageReference Include="VietQRHelper">
       <Version>1.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="ZXing.Net">
+      <Version>0.16.10</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
