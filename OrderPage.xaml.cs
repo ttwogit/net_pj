@@ -36,7 +36,6 @@ namespace net_pj
             foreach (var product in items.Where(p => p.type?.ToString() == typeFilter))
             {
                 count++;
-                System.Diagnostics.Debug.WriteLine($"Add {count}: {product.content}");
                 ProductList.Add(product);
             }   
         }

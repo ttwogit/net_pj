@@ -36,7 +36,7 @@
 
             <Frame x:Name="ContentFrame"/>
         </NavigationView>
-            <GridView x:Name="ProductGrid"
+        <GridView x:Name="ProductGrid"
                   ItemsSource="{x:Bind ProductList, Mode=OneWay}"
                   IsItemClickEnabled="False"
                   SelectionMode="None"

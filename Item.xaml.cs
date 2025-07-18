@@ -118,13 +118,14 @@ namespace net_pj
 
             var panel = new StackPanel { HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center };
             panel.Children.Add(image);
-            panel.Children.Add(new TextBlock { Text = $"Bạn đã đặt món: {NameText.Text}", Margin = new Thickness(0, 10, 0, 0) });
+            panel.Children.Add(new TextBlock { Text = $"Bạn đã đặt: {NameText.Text}", Margin = new Thickness(0, 10, 0, 0) });
 
             var dialog = new ContentDialog
             {
                 Title = "QR Code Thanh Toán",
                 Content = panel,
                 CloseButtonText = "OK",
+                CornerRadius = new CornerRadius(5),
                 XamlRoot = this.Content.XamlRoot
             };
             dialog.Closed += (s, args) =>

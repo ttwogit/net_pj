@@ -43,9 +43,9 @@ namespace net_pj
             }
             else if (selectedItem == GamePage)
             {
-                ContentFrame.Navigate(typeof(TopUpPage));
+                ContentFrame.Navigate(typeof(GameList));
             }
-            else if (selectedItem == AudioPage)
+            else if (selectedItem == OderPage)
             {
                 ContentFrame.Navigate(typeof(OrderPage));
             }

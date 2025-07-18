@@ -42,32 +42,34 @@ namespace net_pj
                 {
                     await conn.OpenAsync();
 
-                    // Lấy token trực tiếp nếu username & password hợp lệ
-                    string query = "SELECT TimeToken FROM users WHERE username = @username AND password = @password LIMIT 1";
+                    string query = "SELECT TimeToken, Email FROM users WHERE username = @username AND password = @password LIMIT 1";
+
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@username", username);
                         cmd.Parameters.AddWithValue("@password", hashedPassword);
 
-                        object result = await cmd.ExecuteScalarAsync();
-
-                        if (result != null && result != DBNull.Value)
+                        using (var reader = await cmd.ExecuteReaderAsync())
                         {
-                            int token = Convert.ToInt32(result);
-
-                            // Gán thông tin vào AppState
-                            AppState.CurrentPlayer = new PlayerInfo
+                            if (await reader.ReadAsync())
                             {
-                                Username = username,
-                                Token = token
-                            };
+                                int token = reader.GetInt32("TimeToken");
+                                string email = reader.GetString("Email");
 
-                            MessageTextBlock.Text = "Đăng nhập thành công!";
-                            Window.Current.Content = new NavigationView();
-                        }
-                        else
-                        {
-                            MessageTextBlock.Text = "Sai tên đăng nhập hoặc mật khẩu.";
+                                AppState.CurrentPlayer = new PlayerInfo
+                                {
+                                    Username = username,
+                                    Token = token,
+                                    Email = email
+                                };
+
+                                MessageTextBlock.Text = "Đăng nhập thành công!";
+                                Window.Current.Content = new NavigationView();
+                            }
+                            else
+                            {
+                                MessageTextBlock.Text = "Sai tên đăng nhập hoặc mật khẩu.";
+                            }
                         }
                     }
                 }
@@ -76,9 +78,10 @@ namespace net_pj
                     MessageTextBlock.Text = "Lỗi: " + ex.Message;
                 }
             }
+
         }
 
-            private async void RegisterButton_Click(object sender, RoutedEventArgs e)
+        private async void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             Window.Current.Content = new RegisterPage();
         }

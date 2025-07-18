@@ -44,7 +44,7 @@ namespace net_pj
         }
         private void TopUpButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(TopUpPage), currentUsername);
+            Frame.Navigate(typeof(GameList), currentUsername);
         }
 
         private void FoodButton_Click(object sender, RoutedEventArgs e)

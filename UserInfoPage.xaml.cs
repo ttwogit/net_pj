@@ -35,13 +35,19 @@ namespace net_pj
             {
                 UsernameTextBlock.Text = $"Tên người chơi: {player.Username}";
                 TokenTextBlock.Text = $"Token đã nạp: {player.Token}";
-                FoodListView.ItemsSource = player.OrderedFoods;
+                FoodListView.Text = player.Email;
             }
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            // Xóa thông tin người dùng
+            AppState.CurrentPlayer = null;
+
+            // Quay lại trang đăng nhập
+            Window.Current.Content = new LoginPage();
+            Window.Current.Activate();
+
         }
     }
 }

@@ -1,0 +1,71 @@
+﻿<UserControl
+    x:Class="net_pj.Game"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:net_pj"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="150" d:DesignWidth="1500">
+
+    <Border BorderBrush="Gray" BorderThickness="1" Margin="5" CornerRadius="8" Padding="5" Height="140">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="296" />
+                <!-- Image -->
+                <ColumnDefinition Width="*" />
+                <!-- Thông tin -->
+                <ColumnDefinition Width="150" />
+                <!-- Button -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Image -->
+            <Image x:Name="ProductImage" 
+                   Grid.Column="0" 
+                   Width="276" 
+                   Height="127"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   Stretch="UniformToFill"/>
+
+            <!-- Thông tin -->
+            <Grid Grid.Column="1" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="Name"
+               Grid.Row="0"
+               FontSize="20"
+               HorizontalAlignment="Stretch"
+               TextWrapping="Wrap"
+               Margin="20,10,20,5" />
+                
+                <TextBlock x:Name="Description"
+               Grid.Row="1"
+               FontSize="13"
+               HorizontalAlignment="Stretch"
+               TextWrapping="Wrap"
+               Margin="20,5,20,5" />
+                <TextBlock x:Name="Test"
+                           TextWrapping="Wrap" 
+                           HorizontalAlignment="Stretch"
+                           Grid.Row="2"
+                           MaxHeight="2"
+                           Text="123451234512345123451234512345123451234512345123451234512345123451234512345123451234512345123451234512345123451234512345123451234512345123451234512345123451234512345123451234512345123451234512345123451234512345123451234512345123451234512345"/>
+
+            </Grid>
+
+
+            <!-- Button -->
+            <Button Content="Chơi thôi"
+                    Grid.Column="2"
+                    Margin="20"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Click="PlayButton_Click"/>
+        </Grid>
+    </Border>
+</UserControl>

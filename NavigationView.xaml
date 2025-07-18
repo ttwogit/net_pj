@@ -16,28 +16,41 @@
                 ItemInvoked="NavView_ItemInvoked">
 
             <NavigationView.PaneHeader>
-                <StackPanel x:Name="PaneHeaderPanel" Orientation="Horizontal" VerticalAlignment="Center" >
+                <StackPanel x:Name="PaneHeaderPanel" Orientation="Horizontal" VerticalAlignment="Center" Height="48" >
                     <Image Source="/Assets/Square44x44Logo.scale-200.png"
-                    Width="32" Height="32" Margin="0,0,8,0"/>
-                    <TextBlock x:Name="WelcomeText"
-                   Text=""
-                   FontSize="18"
-                   VerticalAlignment="Center"/>
+                    Width="48" Height="48" Margin="10,0,00,0"/>
+                    <Grid Height="48" Margin="10,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28"/>
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="WelcomeText"
+                           Text=""
+                           Grid.Row="0"
+                           FontSize="22"
+                           HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="TokenTime"
+                           Grid.Row="1"
+                           Text="Bạn còn"
+                           FontSize="14"
+                           VerticalAlignment="Center"
+                           />
+                    </Grid>
                 </StackPanel>
             </NavigationView.PaneHeader>
             <NavigationView.MenuItems>
                 <NavigationViewItemSeparator/>
-                <NavigationViewItem Tag="AppsPage" Content="Apps" x:Name="AppsPage">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xEB3C;"/>
-                    </NavigationViewItem.Icon>
-                </NavigationViewItem>
                 <NavigationViewItem Tag="GamesPage" Content="Games" x:Name="GamePage">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE7FC;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="MusicPage" Icon="Audio" Content="Music" x:Name="AudioPage"/>
+                <NavigationViewItem Tag="Oder" Icon="Shop" Content="Đặt hàng" x:Name="OderPage"/>
+                <NavigationViewItem Tag="AppsPage" Content="Apps" x:Name="AppsPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xEB3C;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
             </NavigationView.MenuItems>
 
             <ScrollViewer>

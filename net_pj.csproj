@@ -121,6 +121,12 @@
     </Compile>
     <Compile Include="AppState.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Game.xaml.cs">
+      <DependentUpon>Game.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameList.xaml.cs">
+      <DependentUpon>GameList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
@@ -140,9 +146,7 @@
     <Compile Include="RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TopUpPage.xaml.cs">
-      <DependentUpon>TopUpPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="GameElementData.cs" />
     <Compile Include="UIElementData.cs" />
     <Compile Include="UserInfoPage.xaml.cs">
       <DependentUpon>UserInfoPage.xaml</DependentUpon>
@@ -154,6 +158,106 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Appimg\10.jpg" />
+    <Content Include="Assets\Appimg\100.jpg" />
+    <Content Include="Assets\Appimg\105600.jpg" />
+    <Content Include="Assets\Appimg\1063730.jpg" />
+    <Content Include="Assets\Appimg\107410.jpg" />
+    <Content Include="Assets\Appimg\1085660.jpg" />
+    <Content Include="Assets\Appimg\108600.jpg" />
+    <Content Include="Assets\Appimg\1086940.jpg" />
+    <Content Include="Assets\Appimg\1089350.jpg" />
+    <Content Include="Assets\Appimg\1091500.jpg" />
+    <Content Include="Assets\Appimg\1097150.jpg" />
+    <Content Include="Assets\Appimg\1116170.jpg" />
+    <Content Include="Assets\Appimg\1172470.jpg" />
+    <Content Include="Assets\Appimg\1174180.jpg" />
+    <Content Include="Assets\Appimg\1203220.jpg" />
+    <Content Include="Assets\Appimg\1222670.jpg" />
+    <Content Include="Assets\Appimg\1238810.jpg" />
+    <Content Include="Assets\Appimg\1240440.jpg" />
+    <Content Include="Assets\Appimg\1245620.jpg" />
+    <Content Include="Assets\Appimg\1326470.jpg" />
+    <Content Include="Assets\Appimg\1491000.jpg" />
+    <Content Include="Assets\Appimg\1517290.jpg" />
+    <Content Include="Assets\Appimg\1599340.jpg" />
+    <Content Include="Assets\Appimg\1623730.jpg" />
+    <Content Include="Assets\Appimg\1665460.jpg" />
+    <Content Include="Assets\Appimg\1811260.jpg" />
+    <Content Include="Assets\Appimg\1938090.jpg" />
+    <Content Include="Assets\Appimg\1966720.jpg" />
+    <Content Include="Assets\Appimg\218620.jpg" />
+    <Content Include="Assets\Appimg\2186680.jpg" />
+    <Content Include="Assets\Appimg\219990.jpg" />
+    <Content Include="Assets\Appimg\220.jpg" />
+    <Content Include="Assets\Appimg\221100.jpg" />
+    <Content Include="Assets\Appimg\2246340.jpg" />
+    <Content Include="Assets\Appimg\227300.jpg" />
+    <Content Include="Assets\Appimg\227940.jpg" />
+    <Content Include="Assets\Appimg\230410.jpg" />
+    <Content Include="Assets\Appimg\2358720.jpg" />
+    <Content Include="Assets\Appimg\236390.jpg" />
+    <Content Include="Assets\Appimg\238960.jpg" />
+    <Content Include="Assets\Appimg\239140.jpg" />
+    <Content Include="Assets\Appimg\240.jpg" />
+    <Content Include="Assets\Appimg\242760.jpg" />
+    <Content Include="Assets\Appimg\251570.jpg" />
+    <Content Include="Assets\Appimg\252490.jpg" />
+    <Content Include="Assets\Appimg\252950.jpg" />
+    <Content Include="Assets\Appimg\255710.jpg" />
+    <Content Include="Assets\Appimg\261550.jpg" />
+    <Content Include="Assets\Appimg\2694490.jpg" />
+    <Content Include="Assets\Appimg\271590.jpg" />
+    <Content Include="Assets\Appimg\289070.jpg" />
+    <Content Include="Assets\Appimg\291480.jpg" />
+    <Content Include="Assets\Appimg\291550.jpg" />
+    <Content Include="Assets\Appimg\292030.jpg" />
+    <Content Include="Assets\Appimg\304050.jpg" />
+    <Content Include="Assets\Appimg\304930.jpg" />
+    <Content Include="Assets\Appimg\3164500.jpg" />
+    <Content Include="Assets\Appimg\320.jpg" />
+    <Content Include="Assets\Appimg\322330.jpg" />
+    <Content Include="Assets\Appimg\3241660.jpg" />
+    <Content Include="Assets\Appimg\340.jpg" />
+    <Content Include="Assets\Appimg\346110.jpg" />
+    <Content Include="Assets\Appimg\359550.jpg" />
+    <Content Include="Assets\Appimg\377160.jpg" />
+    <Content Include="Assets\Appimg\381210.jpg" />
+    <Content Include="Assets\Appimg\386360.jpg" />
+    <Content Include="Assets\Appimg\400.jpg" />
+    <Content Include="Assets\Appimg\4000.jpg" />
+    <Content Include="Assets\Appimg\413150.jpg" />
+    <Content Include="Assets\Appimg\417910.jpg" />
+    <Content Include="Assets\Appimg\431960.jpg" />
+    <Content Include="Assets\Appimg\433850.jpg" />
+    <Content Include="Assets\Appimg\438100.jpg" />
+    <Content Include="Assets\Appimg\440.jpg" />
+    <Content Include="Assets\Appimg\444090.jpg" />
+    <Content Include="Assets\Appimg\444200.jpg" />
+    <Content Include="Assets\Appimg\477160.jpg" />
+    <Content Include="Assets\Appimg\49520.jpg" />
+    <Content Include="Assets\Appimg\526870.jpg" />
+    <Content Include="Assets\Appimg\532210.jpg" />
+    <Content Include="Assets\Appimg\550.jpg" />
+    <Content Include="Assets\Appimg\550650.jpg" />
+    <Content Include="Assets\Appimg\552990.jpg" />
+    <Content Include="Assets\Appimg\553850.jpg" />
+    <Content Include="Assets\Appimg\578080.jpg" />
+    <Content Include="Assets\Appimg\582010.jpg" />
+    <Content Include="Assets\Appimg\594650.jpg" />
+    <Content Include="Assets\Appimg\632360.jpg" />
+    <Content Include="Assets\Appimg\648800.jpg" />
+    <Content Include="Assets\Appimg\70.jpg" />
+    <Content Include="Assets\Appimg\730.jpg" />
+    <Content Include="Assets\Appimg\739630.jpg" />
+    <Content Include="Assets\Appimg\755790.jpg" />
+    <Content Include="Assets\Appimg\814380.jpg" />
+    <Content Include="Assets\Appimg\892970.jpg" />
+    <Content Include="Assets\Appimg\8930.jpg" />
+    <Content Include="Assets\Appimg\899770.jpg" />
+    <Content Include="Assets\Appimg\901583.jpg" />
+    <Content Include="Assets\Appimg\945360.jpg" />
+    <Content Include="Assets\Appimg\990080.jpg" />
     <Content Include="Assets\mixaobo.png" />
     <Content Include="Assets\garan.png" />
     <Content Include="Assets\comchien.png" />
@@ -173,6 +277,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Game.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="OrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -194,10 +306,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegisterPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TopUpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -230,8 +338,12 @@
     <Content Include="Assets\products.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\game.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="products.json" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

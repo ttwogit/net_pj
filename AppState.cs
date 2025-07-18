@@ -17,7 +17,7 @@ namespace net_pj
     {
         public string Username { get; set; }
         public int Token { get; set; }
-        public List<string> OrderedFoods { get; set; } = new List<string>();
+        public string Email { get; set; }
     }
     public static class UpdateUserTokenAsync {
         public static async Task SyncUserTimeTokenAsync()
