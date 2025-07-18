@@ -14,15 +14,12 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace net_pj
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class NavigationView : Page
     {
+        private DispatcherTimer _timer;
 
         public NavigationView()
         {
@@ -32,10 +29,23 @@ namespace net_pj
             {
                 WelcomeText.Text = $"Chào {AppState.CurrentPlayer.Username}!";
             }
+
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromSeconds(1);
+            _timer.Tick += UpdateTokenTime;
+            _timer.Start();
+        }
+        private void UpdateTokenTime(object sender, object e)
+        {
+            if (AppState.CurrentPlayer != null)
+            {
+                TimeTokenText.Text = $"Thời gian còn lại: {FormatTime.FormatTokenTime(AppState.CurrentPlayer.Token)}";
+            }
         }
         private void NavView_ItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
-                var selectedItem = NavView.SelectedItem;
+
+            var selectedItem = NavView.SelectedItem;
     
             if (selectedItem == AppsPage)
             {

@@ -1,54 +1,329 @@
 [
-  {
-    "type": "DrinkItem",
-    "content": "Trà sữa trân châu",
-    "ImageUrl": "garan.png",
-    "Price": 25000,
-    "OderID": 2001,
-    "Value": 0
-  },
-  {
-    "type": "DrinkItem",
-    "content": "Cà phê sữa đá",
-    "ImageUrl": "mixaobo.png",
-    "Price": 20000,
-    "OderID": 2002,
-    "Value": 0
-  },
-  {
-    "type": "FoodItem",
-    "content": "Bánh mì thịt",
-    "ImageUrl": "trasua.png",
-    "Price": 15000,
-    "OderID": 2003,
-    "Value": 0
-  },
-  {
-    "type": "FoodItem",
-    "content": "Mì xào bò",
-    "ImageUrl": "garan.png",
-    "Price": 15000,
-    "OderID": 2003,
-    "Value": 0
-  },
+  // --- Nạp Thường ---
   {
     "type": "GameTime",
-    "content": "Nạp cháu 500k",
-    "ImageUrl": "trasua.png",
+    "content": "Nạp thường 50k",
+    "ImageUrl": "game.png",
     "Price": 50000,
     "OderID": 1001,
     "Value": 18000
   },
   {
     "type": "GameTime",
-    "content": "Nạp cháu 1 củ",
-    "ImageUrl": "trasua.png",
-    "Price": 10000,
+    "content": "Nạp thường 100k",
+    "ImageUrl": "game.png",
+    "Price": 100000,
     "OderID": 1002,
     "Value": 36000
+  },
+  {
+    "type": "GameTime",
+    "content": "Nạp thường 200k",
+    "ImageUrl": "game.png",
+    "Price": 200000,
+    "OderID": 1003,
+    "Value": 72000
+  },
+  {
+    "type": "GameTime",
+    "content": "Nạp thường 300k",
+    "ImageUrl": "game.png",
+    "Price": 300000,
+    "OderID": 1004,
+    "Value": 108000
+  },
+  {
+    "type": "GameTime",
+    "content": "Nạp thường 500k",
+    "ImageUrl": "game.png",
+    "Price": 500000,
+    "OderID": 1005,
+    "Value": 180000
+  },
+
+  // --- Nạp VIP ---
+  {
+    "type": "GameTime",
+    "content": "Nạp VIP 600k",
+    "ImageUrl": "vip.png",
+    "Price": 600000,
+    "OderID": 1006,
+    "Value": 216000
+  },
+  {
+    "type": "GameTime",
+    "content": "Nạp VIP 700k",
+    "ImageUrl": "vip.png",
+    "Price": 700000,
+    "OderID": 1007,
+    "Value": 252000
+  },
+  {
+    "type": "GameTime",
+    "content": "Nạp VIP 800k",
+    "ImageUrl": "vip.png",
+    "Price": 800000,
+    "OderID": 1008,
+    "Value": 288000
+  },
+  {
+    "type": "GameTime",
+    "content": "Nạp VIP 900k",
+    "ImageUrl": "vip.png",
+    "Price": 900000,
+    "OderID": 1009,
+    "Value": 324000
+  },
+  {
+    "type": "GameTime",
+    "content": "Nạp VIP 1 triệu",
+    "ImageUrl": "vip.png",
+    "Price": 1000000,
+    "OderID": 1010,
+    "Value": 360000
+  },
+
+  // --- 10 Đồ uống ---
+  {
+    "type": "DrinkItem",
+    "content": "Trà sữa trân châu",
+    "ImageUrl": "trasua.png",
+    "Price": 25000,
+    "OderID": 3001,
+    "Value": 0
+  },
+  {
+    "type": "DrinkItem",
+    "content": "Cà phê sữa đá",
+    "ImageUrl": "cafe.png",
+    "Price": 20000,
+    "OderID": 3002,
+    "Value": 0
+  },
+  {
+    "type": "DrinkItem",
+    "content": "Nước cam tươi",
+    "ImageUrl": "nuoccam.png",
+    "Price": 25000,
+    "OderID": 3003,
+    "Value": 0
+  },
+  {
+    "type": "DrinkItem",
+    "content": "Sinh tố bơ",
+    "ImageUrl": "sinhtobo.png",
+    "Price": 30000,
+    "OderID": 3004,
+    "Value": 0
+  },
+  {
+    "type": "DrinkItem",
+    "content": "Trà đào cam sả",
+    "ImageUrl": "tradao.png",
+    "Price": 32000,
+    "OderID": 3005,
+    "Value": 0
+  },
+  {
+    "type": "DrinkItem",
+    "content": "Hồng trà sữa",
+    "ImageUrl": "hongtra.png",
+    "Price": 25000,
+    "OderID": 3006,
+    "Value": 0
+  },
+  {
+    "type": "DrinkItem",
+    "content": "Matcha mát mẻ",
+    "ImageUrl": "matcha.png",
+    "Price": 35000,
+    "OderID": 3007,
+    "Value": 0
+  },
+  {
+    "type": "DrinkItem",
+    "content": "Nước ép dưa hấu",
+    "ImageUrl": "duahau.png",
+    "Price": 25000,
+    "OderID": 3008,
+    "Value": 0
+  },
+  {
+    "type": "DrinkItem",
+    "content": "Nước ép táo",
+    "ImageUrl": "tao.png",
+    "Price": 25000,
+    "OderID": 3009,
+    "Value": 0
+  },
+  {
+    "type": "DrinkItem",
+    "content": "Coca Cola",
+    "ImageUrl": "coca.png",
+    "Price": 15000,
+    "OderID": 3010,
+    "Value": 0
+  },
+
+  // --- 20 Đồ ăn ---
+  {
+    "type": "FoodItem",
+    "content": "Bánh mì thịt",
+    "ImageUrl": "banhmi.png",
+    "Price": 15000,
+    "OderID": 2001,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Mì xào bò",
+    "ImageUrl": "mixaobo.png",
+    "Price": 15000,
+    "OderID": 2002,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Cơm gà xối mỡ",
+    "ImageUrl": "comga.png",
+    "Price": 35000,
+    "OderID": 2003,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Hủ tiếu nam vang",
+    "ImageUrl": "hutieu.png",
+    "Price": 30000,
+    "OderID": 2004,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Bún bò Huế",
+    "ImageUrl": "bunbo.png",
+    "Price": 35000,
+    "OderID": 2005,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Phở bò",
+    "ImageUrl": "pho.png",
+    "Price": 35000,
+    "OderID": 2006,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Cơm chiên hải sản",
+    "ImageUrl": "comchien.png",
+    "Price": 40000,
+    "OderID": 2007,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Gỏi cuốn",
+    "ImageUrl": "goicuon.png",
+    "Price": 15000,
+    "OderID": 2008,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Xôi gà",
+    "ImageUrl": "xoiga.png",
+    "Price": 25000,
+    "OderID": 2009,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Súp cua",
+    "ImageUrl": "supcua.png",
+    "Price": 20000,
+    "OderID": 2010,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Bánh xèo",
+    "ImageUrl": "banhxeo.png",
+    "Price": 30000,
+    "OderID": 2011,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Gà rán",
+    "ImageUrl": "garan.png",
+    "Price": 40000,
+    "OderID": 2012,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Bánh bao",
+    "ImageUrl": "banhbao.png",
+    "Price": 12000,
+    "OderID": 2013,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Bánh cuốn",
+    "ImageUrl": "banhcuon.png",
+    "Price": 20000,
+    "OderID": 2014,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Mì quảng",
+    "ImageUrl": "miquang.png",
+    "Price": 30000,
+    "OderID": 2015,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Bánh kếp",
+    "ImageUrl": "banhkep.png",
+    "Price": 15000,
+    "OderID": 2016,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Bánh rán đậu đỏ",
+    "ImageUrl": "banhran.png",
+    "Price": 20000,
+    "OderID": 2017,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Gỏi gà",
+    "ImageUrl": "goiga.png",
+    "Price": 35000,
+    "OderID": 2018,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Nem nướng",
+    "ImageUrl": "nemnuong.png",
+    "Price": 25000,
+    "OderID": 2019,
+    "Value": 0
+  },
+  {
+    "type": "FoodItem",
+    "content": "Bánh tráng trộn",
+    "ImageUrl": "banhtrang.png",
+    "Price": 15000,
+    "OderID": 2020,
+    "Value": 0
   }
-
-
-
-
 ]

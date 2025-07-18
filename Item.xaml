@@ -12,7 +12,7 @@
     <Border BorderBrush="Gray" BorderThickness="1" Margin="5" CornerRadius="8" Padding="5" Width="300" Height="400">
         <StackPanel>
             <TextBlock x:Name="NameText" FontSize="20" FontWeight="Bold" Margin="5"/>
-            <Image x:Name="ProductImage" Height="310" Stretch="UniformToFill"/>
+            <Image x:Name="ProductImage" Height="310" Width="280" Stretch="Uniform"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />

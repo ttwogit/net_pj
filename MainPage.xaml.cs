@@ -13,59 +13,65 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
 namespace net_pj
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+
     public sealed partial class MainPage : Page
     {
         private string currentUsername;
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            currentUsername = e.Parameter as string;
-
-            if (!string.IsNullOrEmpty(currentUsername))
-            {
-                WelcomeTextBlock.Text = $"Chào {currentUsername}!";
-            }
-        }
 
         public MainPage()
         {
             this.InitializeComponent();
-
+            Name.Text = $"Tên người dùng: {AppState.CurrentPlayer.Username}";
+            Email.Text = $"Email khiếu nại: {AppState.CurrentPlayer.Email}";
         }
-        private void TopUpButton_Click(object sender, RoutedEventArgs e)
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(GameList), currentUsername);
+            string type = (ComplaintTypeBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+            string detail = DetailBox.Text.Trim();
+
+            string username = AppState.CurrentPlayer.Username;
+            string email = AppState.CurrentPlayer.Email;
+
+            
+            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(detail))
+            {
+                var dialog = new ContentDialog
+                {
+                    Title = "Thiếu thông tin",
+                    Content = "Vui lòng chọn loại khiếu nại và nhập chi tiết.",
+                    CloseButtonText = "OK",
+                    CornerRadius = new CornerRadius(5),
+                    XamlRoot = this.XamlRoot
+                };
+                _ = dialog.ShowAsync();
+                return;
+            }
+
+            // Xử lý gửi khiếu nại (giả lập)
+            string complaintInfo = $"Người chơi: {username}\nEmail: {email}\nLoại: {type}\nChi tiết: {detail}";
+
+            var successDialog = new ContentDialog
+            {
+                Title = "Gửi thành công",
+                Content = $"Khiếu nại của bạn đã được ghi nhận.\n\n{complaintInfo}",
+                CloseButtonText = "OK",
+                CornerRadius = new CornerRadius(5),
+                XamlRoot = this.XamlRoot
+            };
+            _ = successDialog.ShowAsync();
+
+            // Reset nội dung
+            ComplaintTypeBox.SelectedIndex = -1;
+            DetailBox.Text = string.Empty;
         }
 
-        private void FoodButton_Click(object sender, RoutedEventArgs e)
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(OrderPage), currentUsername);
-        }
-
-        private void UserInfoButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(UserInfoPage), currentUsername);
-        }
-
-        private void LogoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Xóa thông tin người dùng
-            AppState.CurrentPlayer = null;
-
-            // Quay lại trang đăng nhập
-            Window.Current.Content = new LoginPage();
-            Window.Current.Activate();
-
+            ComplaintTypeBox.SelectedIndex = -1;
+            DetailBox.Text = string.Empty;
         }
     }
 }

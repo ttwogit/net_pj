@@ -17,22 +17,22 @@
 
             <NavigationView.PaneHeader>
                 <StackPanel x:Name="PaneHeaderPanel" Orientation="Horizontal" VerticalAlignment="Center" Height="48" >
-                    <Image Source="/Assets/Square44x44Logo.scale-200.png"
+                    <Image Source="/Assets/avatar.png"
                     Width="48" Height="48" Margin="10,0,00,0"/>
-                    <Grid Height="48" Margin="10,0,0,0">
+                    <Grid Height="50" Margin="10,0,0,0">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="28"/>
-                            <RowDefinition Height="20" />
+                            <RowDefinition Height="24"/>
+                            <RowDefinition Height="24" />
                         </Grid.RowDefinitions>
                         <TextBlock x:Name="WelcomeText"
-                           Text=""
+                           Text="TTWo"
                            Grid.Row="0"
                            FontSize="22"
                            HorizontalAlignment="Left"/>
-                        <TextBlock x:Name="TokenTime"
+                        <TextBlock x:Name="TimeTokenText"
                            Grid.Row="1"
                            Text="Bạn còn"
-                           FontSize="14"
+                           FontSize="13"
                            VerticalAlignment="Center"
                            />
                     </Grid>
@@ -46,10 +46,7 @@
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Oder" Icon="Shop" Content="Đặt hàng" x:Name="OderPage"/>
-                <NavigationViewItem Tag="AppsPage" Content="Apps" x:Name="AppsPage">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xEB3C;"/>
-                    </NavigationViewItem.Icon>
+                <NavigationViewItem Tag="AppsPage" Icon="WebCam" Content="Chăm sóc khách hàng" x:Name="AppsPage">
                 </NavigationViewItem>
             </NavigationView.MenuItems>
 

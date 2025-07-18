@@ -11,6 +11,7 @@ using ZXing.Common;
 using ZXing;
 using MySqlConnector;
 using System.Threading.Tasks;
+using static QRCoder.PayloadGenerator;
 
 
 namespace net_pj
@@ -54,7 +55,8 @@ namespace net_pj
                 control._Value = data.Value;
 
                 string filename = Path.GetFileName(data.ImageUrl);
-                string localPath = $"ms-appx:///Assets/{filename}";
+                string localPath = $"ms-appx:///Assets/{data.type}/{filename}";
+                System.Diagnostics.Debug.WriteLine(localPath);
 
                 var bitmap = new BitmapImage(new Uri(localPath));
                 bitmap.ImageFailed += (s, args) =>
@@ -139,7 +141,7 @@ namespace net_pj
         private async void CloseCalling() {
             if (_Type != "GameTime") return;
             AppState.CurrentPlayer.Token += _Value;
-            await UpdateUserTokenAsync.SyncUserTimeTokenAsync();
+            await UpdateUserAsync.SyncUserTimeTokenAsync();
         }
     }
 }

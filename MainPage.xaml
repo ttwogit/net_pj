@@ -8,15 +8,48 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="20">
-            <TextBlock x:Name="WelcomeTextBlock" FontSize="24" Text="Chào mừng!" />
-            
-            <Button Content="Nạp Game" Click="TopUpButton_Click"/>
-            <Button Content="Gọi Đồ Ăn" Click="FoodButton_Click"/>
-            <Button Content="Thông tin người chơi" Click="UserInfoButton_Click"/>
-            <Button Content="Đăng xuất" Click="LogoutButton_Click"/> 
-  
-        </StackPanel>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer Padding="20">
+            <StackPanel Spacing="16" MaxWidth="450" HorizontalAlignment="Center">
+
+                <!-- Hiển thị thông tin người chơi -->
+                <TextBlock x:Name="Name"
+                           Text=""
+                           FontSize="18"
+                           HorizontalAlignment="Left"/>
+                <TextBlock x:Name="Email"
+                           Text=""
+                           FontSize="14"
+                           HorizontalAlignment="Left"/>
+                <Rectangle Height="2" Fill="LightGray" Margin="0,5"/>
+
+
+                <!-- Loại khiếu nại -->
+                <TextBlock Text="Loại khiếu nại" FontSize="16" Margin="0,0,0,4"/>
+                <ComboBox x:Name="ComplaintTypeBox" PlaceholderText="Chọn loại khiếu nại">
+                    <ComboBoxItem Content="Máy bị lỗi"/>
+                    <ComboBoxItem Content="Phần mềm gặp sự cố"/>
+                    <ComboBoxItem Content="Chuột/Bàn phím hỏng"/>
+                    <ComboBoxItem Content="Ghế ngồi hỏng"/>
+                    <ComboBoxItem Content="Thanh toán"/>
+                    <ComboBoxItem Content="Khác"/>
+                </ComboBox>
+
+                <!-- Nội dung chi tiết -->
+                <TextBlock Text="Chi tiết vấn đề" FontSize="16" Margin="0,16,0,4"/>
+                <TextBox x:Name="DetailBox"
+                         PlaceholderText="Mô tả chi tiết vấn đề..."
+                         AcceptsReturn="True"
+                         Height="120"
+                         TextWrapping="Wrap"/>
+
+                <!-- Nút hành động -->
+                <StackPanel Orientation="Horizontal" Spacing="12" HorizontalAlignment="Center" Margin="0,24,0,0">
+                    <Button Content="Gửi" Width="120" Click="SubmitButton_Click"/>
+                    <Button Content="Làm mới" Width="120" Click="ResetButton_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
