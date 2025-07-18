@@ -75,7 +75,7 @@ namespace net_pj
               bankBin: BankApp.BanksObject[BankKey.BANVIET].bin,
               bankNumber: accountNumber,
               amount: _Price,
-              purpose: _OderID
+              purpose: $"{AppState.CurrentPlayer.Username}+{_OderID}"
             );
 
             // Trong mã QR của MoMo có chứa thêm 1 mã tham chiếu tương ứng với STK
