@@ -80,7 +80,6 @@ namespace net_pj
             }
 
         }
-
         private async void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             Window.Current.Content = new RegisterPage();
@@ -89,8 +88,6 @@ namespace net_pj
         {
             return password.Length >= 8 && System.Text.RegularExpressions.Regex.IsMatch(password, @"\d");
         }
-
-
         private string HashPassword(string username, string password)
         {
             using (SHA256 sha256 = SHA256.Create())
